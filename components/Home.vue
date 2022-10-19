@@ -2,7 +2,7 @@
   <div class="lg:columns-3 md:columns-3 my-5 ml-10">
     <div class="max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow-md">
       <div class="w-full h-full">
-        <iframe class="w-full" src="https://www.youtube.com/embed/mNEUkkoUoIA" style="height: 215px;"></iframe>
+        <img class="rounded-t-lg" src="@/assets/images/h.png" alt="" />
       </div>
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -90,7 +90,7 @@
 
     <div class="max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow-md">
       <div class="w-full h-full">
-        <iframe class="w-full" src="https://www.youtube.com/embed/qJa-VFwPpYA" style="height: 215px;"></iframe>
+        <img class="rounded-t-lg" src="@/assets/images/h.png" alt="" />
       </div>
       <div class="p-5">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">

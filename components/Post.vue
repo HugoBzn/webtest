@@ -101,39 +101,31 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    async postData() {
-      const response = await fetch('http://localhost:1337/api/infos', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({
-          data: {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            company: this.company,
-            phoneNumber: this.phoneNumber,
-            email: this.email,
-            password: this.password,
-          },
-        }),
-      });
-      const content = await response.json();
-      console.log(content);
-    },
-  },
-  data() {
-    return {
-      firstName: '',
-      lastName: '',
-      company: '',
-      phoneNumber: '',
-      email: '',
-      password: '',
-    };
-  },
+<script setup>
+import axios from 'axios';
+import { ref } from 'vue';
+
+const firstName = ref('');
+const lastName = ref('');
+const company = ref('');
+const phoneNumber = ref('');
+const email = ref('');
+const password = ref('');
+
+const postData = () => {
+  axios
+    .post('http://localhost:1337/api/infos', {
+      data: {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        company: company.value,
+        phoneNumber: phoneNumber.value,
+        email: email.value,
+        password: password.value,
+      },
+    })
+    .then((res) => {
+      console.log(res);
+    });
 };
 </script>
