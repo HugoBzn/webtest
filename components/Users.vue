@@ -1,8 +1,6 @@
 <template>
   <div class="px-6 py-6">
-    <div
-      class="block max-w-sm bg-gray-900 rounded-lg border border-purple-900 shadow-md hover:bg-gray-600"
-    >
+    <div class="block max-w-sm bg-gray-900 rounded-lg border border-purple-900 shadow-md hover:bg-gray-600">
       <img class="rounded-lg" :src="'http://localhost:1337' + image.url" />
       <h5 class="px-6 py-1 mb-2 text-2xl font-bold tracking-tight text-white">
         Username: <br />

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid lg:grid-cols-4 sm:grid-cols-1 gap-4">
+    <div class="grid lg:grid-cols-4 sm:grid-cols-1 gap-4 place-content-center">
       <Users v-for="user in users" :username="user" />
     </div>
   </div>
