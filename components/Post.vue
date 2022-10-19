@@ -112,6 +112,7 @@ const phoneNumber = ref('');
 const email = ref('');
 const password = ref('');
 
+// Method POST
 const postData = () => {
   axios
     .post('http://localhost:1337/api/infos', {
@@ -127,5 +128,18 @@ const postData = () => {
     .then((res) => {
       console.log(res);
     });
+    
+    // Method clean form
+    clearForm();
+};
+
+// Method clearForm
+const clearForm = () => {
+  firstName.value = '';
+  lastName.value = '';
+  company.value = '';
+  phoneNumber.value = '';
+  email.value = '';
+  password.value = '';
 };
 </script>
