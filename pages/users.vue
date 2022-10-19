@@ -9,7 +9,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const users = ref(['1', '2']);
+const users = ref(['1', '2', '3', '4', '5', '6']);
 </script>
 
 <style scoped></style>
