@@ -1,15 +1,12 @@
 <template>
   <div>
     <div class="grid lg:grid-cols-2 sm:grid-cols-1 gap-4 place-content-center">
-      <Users v-for="user in users" :username="user" />
+      <Users v-for="user in 6" :username="user" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const users = ref(['1', '2', '3', '4', '5', '6']);
 </script>
 
 <style scoped></style>
