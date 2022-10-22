@@ -89,6 +89,7 @@
           class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           placeholder="•••••••••"
           required=""
+          v-model="confirmPassword"
         />
       </div>
       <button
@@ -111,6 +112,7 @@ const company = ref('');
 const phoneNumber = ref('');
 const email = ref('');
 const password = ref('');
+const confirmPassword = ref('');
 
 // Method POST
 const postData = () => {
@@ -128,9 +130,9 @@ const postData = () => {
     .then((res) => {
       console.log(res);
     });
-    
-    // Method clean form
-    clearForm();
+
+  // Method clean form
+  clearForm();
 };
 
 // Method clearForm
@@ -141,5 +143,6 @@ const clearForm = () => {
   phoneNumber.value = '';
   email.value = '';
   password.value = '';
+  confirmPassword.value = '';
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="px-6 py-6">
     <div class="max-w-sm rounded overflow-hidden shadow-lg border border-purple-900 bg-gray-900">
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{{ user.firstName }} {{ user.lastName }}</div>
+        <div class="font-bold text-xl mb-2">{{ user.firstName || "No user"}} {{ user.lastName }} </div>
         <p class="text-white text-base">Company: {{ user.company }}</p>
         <p class="text-white text-base">Phone Number: {{ user.phoneNumber }}</p>
         <p class="text-white text-base">Email: {{ user.email }}</p>
