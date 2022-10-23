@@ -9,7 +9,7 @@
             id="first_name"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="John"
-            required=""
+            required
             v-model="firstName"
           />
         </div>
@@ -20,7 +20,7 @@
             id="last_name"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Doe"
-            required=""
+            required
             v-model="lastName"
           />
         </div>
@@ -31,7 +31,7 @@
             id="company"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Flowbite"
-            required=""
+            required
             v-model="company"
           />
         </div>
@@ -84,7 +84,7 @@
             id="password"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="•••••••••"
-            required=""
+            required
             v-model="password"
           />
           <input
@@ -93,7 +93,7 @@
             id="password"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="•••••••••"
-            required=""
+            required
             v-model="password"
           />
         </div>
@@ -112,7 +112,7 @@
             id="confirm_password"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="•••••••••"
-            required=""
+            required
             v-model="confirmPassword"
           />
           <input
@@ -121,14 +121,29 @@
             id="confirm_password"
             class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="•••••••••"
-            required=""
+            required
             v-model="confirmPassword"
           />
         </div>
+        <p class="mt-2 text-sm text-green-600" v-if="matchPassword.value === true">
+          <span class="font-extrabold">Passwords are {{ matchPassword.value ? 'same' : 'not same' }}</span>
+        </p>
+        <p class="mt-2 text-sm text-red-600" v-else>
+          <span class="font-extrabold">Passwords are {{ matchPassword.value ? 'same' : 'not same' }}</span>
+        </p>
       </div>
       <button
+      v-if="matchPassword.value === true"
         type="submit"
         class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 shadow-lg shadow-purple-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      >
+        Submit
+      </button>
+      <button
+      v-else
+      disabled
+        type="submit"
+        class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 shadow-lg shadow-purple-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
       >
         Submit
       </button>
@@ -138,7 +153,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const firstName = ref('');
 const lastName = ref('');
@@ -150,6 +165,9 @@ const confirmPassword = ref('');
 
 const showPassword = ref(false);
 const showConfirmPassword = ref(false);
+
+const match = ref(true);
+const unmatch = ref(false);
 
 // Method POST
 const postData = () => {
@@ -190,4 +208,13 @@ const togglePassword = () => {
 const toggleConfirmPassword = () => {
   showConfirmPassword.value = !showConfirmPassword.value;
 };
+
+// Validate passwords
+const matchPassword = computed(() => {
+  if (password.value === confirmPassword.value) {
+    return match;
+  } else {
+    return unmatch;
+  }
+});
 </script>
