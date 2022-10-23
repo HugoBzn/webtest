@@ -72,25 +72,59 @@
       </div>
       <div class="mb-6">
         <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          placeholder="•••••••••"
-          required=""
-          v-model="password"
-        />
+        <div class="flex">
+          <span
+            class="inline-flex items-center px-3 text-sm text-white bg-gray-800 rounded-l-md border border-gray-300"
+            @click="togglePassword"
+            >{{ showPassword ? '🛑' : '👁️' }}
+          </span>
+          <input
+            v-if="showPassword"
+            type="text"
+            id="password"
+            class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="•••••••••"
+            required=""
+            v-model="password"
+          />
+          <input
+            v-else
+            type="password"
+            id="password"
+            class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="•••••••••"
+            required=""
+            v-model="password"
+          />
+        </div>
       </div>
       <div class="mb-6">
         <label for="confirm_password" class="block mb-2 text-sm font-medium text-white">Confirm password</label>
-        <input
-          type="password"
-          id="confirm_password"
-          class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          placeholder="•••••••••"
-          required=""
-          v-model="confirmPassword"
-        />
+        <div class="flex">
+          <span
+            class="inline-flex items-center px-3 text-sm text-white bg-gray-800 rounded-l-md border border-gray-300"
+            @click="toggleConfirmPassword"
+            >{{ showConfirmPassword ? '🛑' : '👁️' }}
+          </span>
+          <input
+            v-if="showConfirmPassword"
+            type="text"
+            id="confirm_password"
+            class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="•••••••••"
+            required=""
+            v-model="confirmPassword"
+          />
+          <input
+            v-else
+            type="password"
+            id="confirm_password"
+            class="bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="•••••••••"
+            required=""
+            v-model="confirmPassword"
+          />
+        </div>
       </div>
       <button
         type="submit"
@@ -113,6 +147,9 @@ const phoneNumber = ref('');
 const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');
+
+const showPassword = ref(false);
+const showConfirmPassword = ref(false);
 
 // Method POST
 const postData = () => {
@@ -144,5 +181,13 @@ const clearForm = () => {
   email.value = '';
   password.value = '';
   confirmPassword.value = '';
+};
+
+// Methods show and hide password
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
+const toggleConfirmPassword = () => {
+  showConfirmPassword.value = !showConfirmPassword.value;
 };
 </script>
