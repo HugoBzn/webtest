@@ -1,5 +1,6 @@
 <template>
   <div class="px-6 py-6">
+    <h1>{{ $t('welcome') }}</h1>
     <div id="mapContainer">
       <!-- <button @click="setupLeafletMap()">ASD</button> -->
     </div>
@@ -23,10 +24,7 @@ const setupLeafletMap = () => {
   L.control.scale().addTo(mapDiv);
   L.marker([24.0346902, -104.6817882], { draggable: true }).addTo(mapDiv);
 
-  L.marker([24.0346902, -104.6817882])
-    .addTo(mapDiv)
-    .bindPopup('Tengo hambre 🍔.')
-    .closePopup();
+  L.marker([24.0346902, -104.6817882]).addTo(mapDiv).bindPopup('Tengo hambre 🍔.').closePopup();
 };
 
 onMounted(() => {

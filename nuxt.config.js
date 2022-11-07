@@ -34,7 +34,18 @@ export default {
   buildModules: ['@nuxt/postcss8'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/i18n'],
+  i18n: {
+    /* module options */
+    locales: [
+      { code: 'en', iso: 'en', file: 'en.json' },
+      { code: 'es', iso: 'es', file: 'es.json' },
+    ],
+    strategy: 'prefix_except_default',
+    lazy: true,
+    langDir: 'i18n/',
+    locale: 'en',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

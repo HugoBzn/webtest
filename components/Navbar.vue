@@ -19,6 +19,9 @@
       </div>
 
       <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+      <a :href="$i18n.locale === 'en' ? '/es' : '/en'">
+        <span>Switch Language</span>
+      </a>
       <ul
         :class="showMenu ? 'flex' : 'hidden'"
         class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
